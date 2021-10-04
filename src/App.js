@@ -2,6 +2,8 @@ import react, { useState } from 'react';
 import './App.scss';
 import axios from 'axios';
 import cn from 'classnames';
+import NewsItem from './components/NewsItem';
+import NewsList from './components/NewsList';
 require('dotenv').config();
 
 const App = (props) => {
@@ -31,10 +33,11 @@ const App = (props) => {
 
   return (
     <div className={cn('App')}>
-      <div>
+      <NewsList />
+      {/* <div>
         <button onClick={onClick}>불러오기</button>
       </div>
-      {data && <textarea rows={7} value={JSON.stringify(data, null, 2)} />}
+      {data && <textarea rows={7} value={JSON.stringify(data, null, 2)} />} */}
     </div>
   );
 };
