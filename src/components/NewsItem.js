@@ -46,13 +46,13 @@ const NewsItem = ({ article }) => {
   return (
     <NewsItemBlock>
       {urlToImage && (
-        <div classnames={cn('thumbnail')}>
+        <div className="thumbnail">
           <a href={url} target="_blank" rel="noopener noreferrer">
             <img src={urlToImage} alt="thumbnail" />
           </a>
         </div>
       )}
-      <div classnames={cn('contents')}>
+      <div className="contents">
         <h2>
           <a href={url} target="_blank" rel="noopener noreferrer">
             {title}

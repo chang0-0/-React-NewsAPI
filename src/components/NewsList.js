@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import cn from 'classnames';
 import NewsItem from './NewsItem';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -10,6 +9,7 @@ const NewsListBlock = styled.div`
   width: 768px;
   margin: 0 auto;
   margin-top: 2rem;
+
   @media screen and (max-width: 768px) {
     width: 100%;
     padding-right: 1rem;
@@ -48,7 +48,7 @@ const NewsList = () => {
 
   // 대기 중일 때
   if (loading) {
-    return <div classnames={cn('NewsListBlock')}> 대기중..</div>;
+    return <NewsListBlock> 대기중..</NewsListBlock>;
   }
 
   // 아직 articles 값이 설정되지 않았을 때
@@ -59,11 +59,9 @@ const NewsList = () => {
   // articles 값이 유효할 때
   return (
     <NewsListBlock>
-      <div classnames={cn('NewsListBlock')}>
-        {articles.map((article) => (
-          <NewsItem key={articles.url} article={article} />
-        ))}
-      </div>
+      {articles.map((article) => (
+        <NewsItem key={article.url} article={article} />
+      ))}
     </NewsListBlock>
   );
 };

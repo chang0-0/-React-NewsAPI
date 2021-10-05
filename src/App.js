@@ -1,12 +1,16 @@
-import react, { useState } from 'react';
+import react, { useState, useCallback } from 'react';
 import './App.scss';
 import axios from 'axios';
 import cn from 'classnames';
-import NewsItem from './components/NewsItem';
+
 import NewsList from './components/NewsList';
+import Categories from './components/Categories';
 require('dotenv').config();
 
 const App = (props) => {
+  const [category, setCategory] = useState('all');
+  const onSelect = useCallback((category) => setCategory(category), []);
+
   const [data, setData] = useState(null);
   const log = console.log;
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -33,7 +37,8 @@ const App = (props) => {
 
   return (
     <div className={cn('App')}>
-      <NewsList />
+      <Categories category={category} onSelect={onSelect} />
+      <NewsList category={category} />
       {/* <div>
         <button onClick={onClick}>불러오기</button>
       </div>
