@@ -2,7 +2,6 @@ import react, { useState, useCallback } from 'react';
 import './App.scss';
 import axios from 'axios';
 import cn from 'classnames';
-
 import NewsList from './components/NewsList';
 import Categories from './components/Categories';
 require('dotenv').config();
