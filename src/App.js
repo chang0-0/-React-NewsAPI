@@ -2,8 +2,10 @@ import react, { useState, useCallback } from 'react';
 import './App.scss';
 import axios from 'axios';
 import cn from 'classnames';
+import { Route } from 'react-router-dom';
 import NewsList from './components/NewsList';
 import Categories from './components/Categories';
+import NewsPage from './pages/NewsPage';
 require('dotenv').config();
 
 const App = (props) => {
@@ -36,12 +38,7 @@ const App = (props) => {
 
   return (
     <div className={cn('App')}>
-      <Categories category={category} onSelect={onSelect} />
-      <NewsList category={category} />
-      {/* <div>
-        <button onClick={onClick}>불러오기</button>
-      </div>
-      {data && <textarea rows={7} value={JSON.stringify(data, null, 2)} />} */}
+      <Route path="/:category?" component={NewsPage} />
     </div>
   );
 };
