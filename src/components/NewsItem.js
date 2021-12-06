@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const NewsItemBlock = styled.div`
   display: flex;
-
   .thumbnail {
     margin-right: 1rem;
     img {
@@ -28,7 +27,6 @@ const NewsItemBlock = styled.div`
       white-space: normal;
     }
   }
-
   & + & {
     margin-top: 3rem;
   }
